@@ -1,0 +1,4 @@
+KorSTS/*.tsv
+KorSTS/*.npy
+*/__pycache__
+wandb

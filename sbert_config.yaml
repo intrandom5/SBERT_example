@@ -1,0 +1,9 @@
+train_x_dir: "KorSTS/train_x.npy"
+train_y_dir: "KorSTS/train_y.npy"
+valid_x_dir: "KorSTS/valid_x.npy"
+valid_y_dir: "KorSTS/valid_y.npy"
+
+batch_size: 16
+lr: .2e-5
+
+log_name: "experiment 1."

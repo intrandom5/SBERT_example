@@ -1,0 +1,1 @@
+from .sbert_klue_bert_base import SBERT_with_KLUE_BERT
