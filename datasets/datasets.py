@@ -20,7 +20,10 @@ class KorSTSDatasets(Dataset):
     def __getitem__(self, idx):
         sentence1, sentence2 = self.x[idx]
         data = torch.IntTensor(sentence1), torch.IntTensor(sentence2)
-        label = int(float(self.y[idx]))
+        # cosine similarity의 범위 [-1. ~ 1.] 사이 값으로 정규화 필요.
+        label = float(self.y[idx]) * 0.4 - 1
+        
+        # label = int(float(self.y[idx]))
         return data, label
 
 def KorSTS_collate_fn(batch):
@@ -37,7 +40,7 @@ def KorSTS_collate_fn(batch):
         
     s1_batch = pad_sequence(s1_batches, batch_first=True, padding_value=0)
     s2_batch = pad_sequence(s2_batches, batch_first=True, padding_value=0)
-    return s1_batch, s2_batch, torch.Tensor(labels)
+    return s1_batch.long(), s2_batch.long(), torch.FloatTensor(labels)
 
 def bucket_pair_indices(
     sentence_length: List[Tuple[int, int]],

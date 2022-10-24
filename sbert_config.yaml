@@ -1,9 +1,14 @@
+architecture: "klue/bert-base"
+
 train_x_dir: "KorSTS/train_x.npy"
 train_y_dir: "KorSTS/train_y.npy"
 valid_x_dir: "KorSTS/valid_x.npy"
 valid_y_dir: "KorSTS/valid_y.npy"
 
+epochs: 1
 batch_size: 16
-lr: .2e-5
+lr: .1e-7
 
-log_name: "experiment 1."
+log_name: "prototype"
+model_load_path: None
+model_save_path: "results/prototype.pt"

@@ -16,5 +16,3 @@ class SBERT_with_KLUE_BERT(nn.Module):
         outputs = self.similarity(u, v)
 
         return outputs
-
-        
